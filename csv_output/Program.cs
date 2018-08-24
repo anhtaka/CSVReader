@@ -14,9 +14,22 @@ namespace csv_output
 
             using (var reader = new CSVReader<IntIntLine>(@"example.csv"))
             {
-                var s = reader.Where(i => i.data1 > 0).Select(i => i.data2).Sum();
+                //var s = reader.Where(i => i.data1 > 0).Select(i => i.data2).Sum();
+
+                var s = reader.Select(i => 
+                    i.data1.ToString() +","+ 
+                    i.data2.ToString());
+
+
+                foreach (var data in s)
+                {
+                    Console.WriteLine(data);
+                }
+
                 Console.WriteLine(s);
             }
+
+
             return;
 
 
